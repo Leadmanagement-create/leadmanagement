@@ -1,0 +1,34 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+    
+     <div metal:fill-slot="style_css" tal:omit-tag="True">
+        <link rel="stylesheet" href="/static/css/form_styles.css">
+    </div>
+
+    <div metal:fill-slot="header">
+        <p>Connect with your leads and grow your business</p>
+    </div>
+
+    <div metal:fill-slot="content" tal:omit-tag="True">
+
+        <div class="form-wrapper">
+
+            <div class="form-container">
+                <form action="" method="POST" class="account-form">
+                    <h1>Login to Lead Management</h1>
+
+                    <input name="email" type="email" placeholder=" Your email address" class="form-control" value="${ email }" required>
+                    
+                    <input name="password" type="password" placeholder=" Password" class="form-control" value="${ password }" required>
+
+                    <button type="submit" class="btn btn-danger">Log In</button>
+                    
+                    <div style="clear: both;"></div>
+
+                    <div class="error-msg" tal:condition="errors">${ errors }</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+</div>

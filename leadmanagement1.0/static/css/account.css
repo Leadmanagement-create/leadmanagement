@@ -1,0 +1,65 @@
+
+.form-container {
+    padding: 50px;
+}
+
+form.account-form > * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+form.account-form h1 {
+    text-align: center;
+}
+
+form.account-form button {
+    float: right;
+}
+
+form.account-form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px;
+    background-color: #c9c9c9;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.error-msg {
+    text-align: center;
+}
+
+/* this is account index css below */
+.sections {
+    margin-top: 20px;
+}
+
+.section-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.section-button:hover {
+    background-color: #0056b3;
+}
+.logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: auto; /* This will push the button to the right */
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}

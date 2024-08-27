@@ -1,0 +1,41 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+
+
+    <div metal:fill-slot="style_css" tal:omit-tag="True">
+        <link rel="stylesheet" href="/static/css/form_styles.css">
+    </div>
+
+
+    <div metal:fill-slot="header">
+        <p>Connect with your leads and grow your business</p>
+    </div>
+
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        
+    
+            <div class="form-wrapper">
+                <div class="form-container">
+                    <form action="" method="POST">
+                        <h2>Register</h2>
+                     
+                        <input name="first_name" type="text" placeholder=" Your first name" class="form-control" value="${ first_name }" required>
+                        <input name="last_name" type="text" placeholder=" Your last name" class="form-control" value="${ last_name }" required>
+                        
+                        <input name="email" type="email" placeholder=" Your email address" class="form-control"
+                        value="${ email }" required>
+                        
+                        <input name="password" minlength="5" type="password" placeholder=" Password" class="form-control"
+                        value="${ password }" required>
+                        
+                        <button type="submit" class="btn btn-danger">Register</button>
+                        <div style="clear: both;"></div>
+                        
+                        <div class="error-msg" tal:condition="errors">${errors}</div>
+                    </form>
+                    <a href="/account/login">Already have an account? Login</a>
+                </div>
+        
+            </div>
+           
+    </div>
+</div>

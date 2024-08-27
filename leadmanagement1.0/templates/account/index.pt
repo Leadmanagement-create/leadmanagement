@@ -1,0 +1,31 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+
+    <div metal:fill-slot="style_css" tal:omit-tag="True">
+        <link rel="stylesheet" href="/static/css/account.css">
+    </div>
+    
+    <div metal:fill-slot="header" tal:omit-tag="True">
+            <a href="/" class="logout-button">Log Out</a>
+    </div>
+
+    <div metal:fill-slot="content" tal:omit-tag="True">
+        
+        <div class="page-core">
+            <h1>Your Lead Management Account</h1>
+
+            <div>
+                Welcome to your account ${user.first_name} !
+                Here you can manage your leads, track their progress, and nurture them to conversion.
+            </div>
+
+            <div class="sections">
+                <a class="section-button" href="/lead-generation">Lead Generation</a>
+                <a class="section-button" href="/lead-tracking">Lead Tracking</a>
+                <a class="section-button" href="/qualification">Qualification</a>
+                <a class="section-button" href="/routing">Routing</a>
+                <a class="section-button" href="/nurturing">Nurturing</a>
+            </div>
+        </div>
+    </div>
+
+</div>

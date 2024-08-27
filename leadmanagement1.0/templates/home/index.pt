@@ -1,0 +1,51 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+ 
+ 
+    
+    <div class="main-content" tal:omit-tag = "True">
+
+      
+
+        <div metal:fill-slot="header" tal:omit-tag="True">
+
+             <div class="topnav">
+            
+                <a href="/account/getting_started">Getting Started</a>
+       
+            </div>
+          
+                <h2><strong>Deliver meaningful data to every data professional</strong></h2>
+        </div>
+
+        <div metal:fill-slot="content" tal:omit-tag="True">
+
+                <p>Access authoritative data: Accelerate your time to value by automatically reusing the semantic definitions and associations from various applications.</p>
+                <p>Enrich all data projects: Harmonise heterogeneous data into a business semantic model of your diverse data landscape.</p>
+                <p>Simplify the data landscape: Access all your data across hybrid and cloud environments no matter where it resides.</p>
+                <p>Empower data professionals: Enable data professionals to easily find, understand, and trust data.</p>
+    
+
+            <div class="container project-list">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+
+                        <h2>New releases</h2>
+                        <span class="subtitle">Hot off the press: the newest project releases</span>
+
+
+                        <div class="project" tal:repeat="p releases">
+                            <div class="title"><a href="/project/${p.id}">${p.id}</a></div>
+                            <div class="desc">${p.summary}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+        
+    
+</div>

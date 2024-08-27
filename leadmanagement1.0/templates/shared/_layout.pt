@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Lead Management System </title>
+
+        <div metal:define-slot="style_css" tal:omit-tag="True"> 
+            <link rel="stylesheet" href="/static/site.css"> 
+        </div>
+    
+    
+
+    </head>
+    
+    <body>
+        <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
+        <h1> Lead Management System </h1>
+        <!-- <div class="topnav">
+            <a href="/account/getting_started">Getting Started</a>
+        
+            </div> -->
+    
+        <div class = "main-content">
+            <div metal:define-slot="header" tal:omit-tag="True"> No Header </div>
+            <div metal:define-slot="content" tal:omit-tag="True">No Content</div>
+
+        </div>
+    </body>
+
+
+<footer>
+    <p> &copy; 2024 WNS Analytics Lead Management System </p>
+</footer>
+
+</html>
