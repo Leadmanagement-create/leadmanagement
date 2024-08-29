@@ -12,7 +12,7 @@ Welcome to the Lead Management Project! This project aims to provide a comprehen
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/leadmanagement1.0.git`
+1. Clone the repository: `git clone https://github.com/Leadmanagement-create/leadmanagement1.0.git`
 2. Create a local virtual environment and Install the required dependencies: pip install -r requirements
 3. Start the application:  uvicorn main:app
 
