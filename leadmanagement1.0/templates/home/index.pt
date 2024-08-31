@@ -33,9 +33,8 @@
                         <h2>New releases</h2>
                         <span class="subtitle">Hot off the press: the newest project releases</span>
 
-
                         <div class="project" tal:repeat="p releases">
-                            <div class="title"><a href="/project/${p.id}">${p.id}</a></div>
+                            <!-- <div class="title"><a href="/project/${p.id}">${p.id}</a></div> -->
                             <div class="desc">${p.summary}</div>
                         </div>
                     </div>

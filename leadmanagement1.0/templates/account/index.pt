@@ -19,7 +19,7 @@
             </div>
 
             <div class="sections">
-                <a class="section-button" href="/lead-generation">Lead Generation</a>
+                <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
                 <a class="section-button" href="/lead-tracking">Lead Tracking</a>
                 <a class="section-button" href="/qualification">Qualification</a>
                 <a class="section-button" href="/routing">Routing</a>

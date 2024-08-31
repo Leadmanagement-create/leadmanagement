@@ -1,0 +1,73 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+ 
+
+
+    <div metal:fill-slot="style_css" tal:omit-tag="True">
+        <!-- Add any additional styles specific to this template -->
+        <link rel="stylesheet" href="/static/css/form_styles.css">
+    </div>
+
+    <body>
+        <div class = "main-content">
+            <div metal:fill-slot="header">
+                <h2>Add a Lead</h2>
+            </div>
+
+            <div metal:fill-slot="content">
+
+                <div class="form-wrapper">
+
+                    <div class="form-container">
+
+                        <form method="post" action="">
+                            
+        
+                            <div>
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="first_name" name="first_name" required>
+                            </div>
+                            
+                            <div>
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" id="last_name" name="last_name" required>
+                            </div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div>
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div>
+                                <label for="source">Lead Source:</label>
+                                <input type="text" id="source" name="source">
+                            </div>
+                            <div>
+                                <label for="status">Status:</label>
+                                <input type="text" id="status" name="status">
+                            </div>
+                            <div>
+                                <label for="company_id">Company ID:</label>
+                                <input type="number" id="company_id" name="company_id">
+                            </div>
+                            <div>
+                                <label for="user_id">User ID:</label>
+                                <input type="number" id="user_id" name="user_id">
+                            </div>
+                            <!-- TODO: add date picker -->
+                            <!-- <div>
+                                <label for="last_contact_date">Last Contact Date:</label>
+                                <input type="date" id="last_contact_date" name="last_contact_date">
+                            </div> -->
+                            <button type="submit">Submit Lead</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    
+
+</div>
