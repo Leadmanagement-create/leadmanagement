@@ -32,11 +32,15 @@
 
                         <h2>New releases</h2>
                         <span class="subtitle">Hot off the press: the newest project releases</span>
+                            <ul>
 
-                        <div class="project" tal:repeat="p releases">
-                            <!-- <div class="title"><a href="/project/${p.id}">${p.id}</a></div> -->
-                            <div class="desc">${p.summary}</div>
-                        </div>
+                                <li class="project" tal:repeat="p releases">
+                                    <!-- <div class="title"><a href="/project/${p.id}">${p.id}</a></div> -->
+
+                                    <div class="title">${p.id}</div>
+                                    <div class="desc">${p.summary}</div>
+                                </li>
+                            </ul>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
