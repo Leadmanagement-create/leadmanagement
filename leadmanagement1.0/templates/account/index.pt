@@ -8,23 +8,34 @@
             <a href="/" class="logout-button">Log Out</a>
     </div>
 
-    <div metal:fill-slot="content" tal:omit-tag="True">
+    <div metal:fill-slot="content" class="content" tal:omit-tag="True">
         
         <div class="page-core">
             <h1>Your Lead Management Account</h1>
+                <p>Welcome to your account ${user.first_name}!</p>
 
-            <div>
-                Welcome to your account ${user.first_name} !
-                Here you can manage your leads, track their progress, and nurture them to conversion.
-            </div>
+                <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
 
-            <div class="sections">
-                <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
-                <a class="section-button" href="/lead-tracking">Lead Tracking</a>
-                <a class="section-button" href="/qualification">Qualification</a>
-                <a class="section-button" href="/routing">Routing</a>
-                <a class="section-button" href="/nurturing">Nurturing</a>
-            </div>
+            
+
+                <div class="leads sections">
+                    <h3>Leads</h3>
+                    <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
+                    <a class="section-button" href="/lead-tracking">Lead Tracking</a>
+                    <a class="section-button" href="/routing">Routing</a>
+                    <a class="section-button" href="/nurturing">Nurturing/Activities</a>
+                </div>
+                <div class="company sections">
+                    <h3>Company</h3>
+                    <a class="section-button" href="/company">Register Company</a>
+                    <a class="section-button" href="/company">Update Company</a>
+                    <a class="section-button" href="/company">View Registered Companies</a>
+                </div>
+                <div class="campaign sections">
+                    <h3>Campaign</h3>
+                    <a class="section-button" href="/campaign">Add a New Campaign</a>
+                    <a class="section-button" href="/update_campaign">Update Campaign</a>
+                </div>
         </div>
     </div>
 

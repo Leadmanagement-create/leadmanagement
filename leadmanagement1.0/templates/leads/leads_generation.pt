@@ -10,7 +10,7 @@
     <body>
         <div class = "main-content">
             <div metal:fill-slot="header">
-                <h2>Add a Lead</h2>
+                <p>Connect with your leads and grow your business</p>
             </div>
 
             <div metal:fill-slot="content">
@@ -20,7 +20,7 @@
                     <div class="form-container">
 
                         <form method="post" action="">
-                            
+                            <h2> Add a Lead </h2>
         
                             <div>
                                 <label for="first_name">First Name:</label>
