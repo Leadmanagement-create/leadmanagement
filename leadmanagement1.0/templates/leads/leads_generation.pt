@@ -14,6 +14,13 @@
             </div>
 
             <div metal:fill-slot="content">
+                <!-- Back Button -->
+                <button type="button" onclick="window.history.back();" class="back-button">Back</button>
+                 <!-- Upload CSV Button -->
+                <button type="button" onclick="document.getElementById('fileInput').click();">Upload From CSV</button>
+                <form id="uploadForm" action="/leads/upload_leads" method="post" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" id="fileInput" name="file" accept=".csv" onchange="document.getElementById('uploadForm').submit();">
+                </form>
 
                 <div class="form-wrapper">
 

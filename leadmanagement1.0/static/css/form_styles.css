@@ -55,3 +55,17 @@ a {
 body{
     background: #cfe1ff;
 }
+
+.back-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add some space below the button */
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
