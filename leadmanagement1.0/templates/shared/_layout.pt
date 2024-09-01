@@ -15,16 +15,38 @@
     <body>
         <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
         <h1> Lead Management System </h1>
-        <!-- <div class="topnav">
-            <a href="/account/getting_started">Getting Started</a>
-        
-            </div> -->
+
+         <!-- Night Mode Toggle Switch -->
+        <label class="switch">
+            <input type="checkbox" id="nightModeToggle" onclick="toggleNightMode()">
+            <span class="slider round"></span>
+        </label>
     
         <div class = "main-content">
             <div metal:define-slot="header" tal:omit-tag="True"> No Header </div>
             <div metal:define-slot="content" tal:omit-tag="True">No Content</div>
 
         </div>
+
+        <script>
+            function toggleNightMode() {
+                document.body.classList.toggle('night-mode');
+                // Save the preference in local storage
+                if (document.body.classList.contains('night-mode')) {
+                    localStorage.setItem('nightMode', 'enabled');
+                    document.getElementById('nightModeToggle').checked = true;
+                } else {
+                    localStorage.removeItem('nightMode');
+                    document.getElementById('nightModeToggle').checked = false;
+                }
+            }
+
+            // Load the preference from local storage
+            if (localStorage.getItem('nightMode') === 'enabled') {
+                document.body.classList.add('night-mode');
+                document.getElementById('nightModeToggle').checked = true;
+            }
+        </script>
     </body>
 
 

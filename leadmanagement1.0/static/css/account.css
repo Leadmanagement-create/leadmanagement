@@ -1,4 +1,5 @@
-
+/* Adding night mode toggle switch */
+@import url(/static/toggle_switch.css);
 /* this is account index css below */
 .main-content {
     background-image: url('/static/img/account_bg_image.jpg');
@@ -6,9 +7,11 @@
     background-position: right; /* This will center the image */
     background-repeat: no-repeat; /* This will prevent the image from repeating */
 }
-body{
+
+body {
     background: #cfe1ff;
 }
+
 .sections {
     margin-top: 20px;
     display: flex;
@@ -26,11 +29,13 @@ body{
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-
 .section-button:hover {
     background-color: #0056b3;
 }
 .logout-button {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
     background-color: #f44336;
     color: white;
     padding: 8px 16px;
@@ -41,4 +46,41 @@ body{
 
 .logout-button:hover {
     background-color: #d32f2f;
+}
+
+/* Night mode styles */
+body.night-mode {
+    background: #121212;
+    color: white;
+}
+
+body.night-mode .main-content {
+    background-image: url('/static/img/account_bg_image_night.jpg'); /* Optional: Use a different background image for night mode */
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+body.night-mode .sections {
+    /* Add any specific styles for sections in night mode if needed */
+    margin-top: 20px;
+    display: flex;
+}
+
+body.night-mode .section-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+body.night-mode .section-button:hover {
+    background-color: #555;
+    color: white;
 }
