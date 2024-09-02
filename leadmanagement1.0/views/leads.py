@@ -47,10 +47,10 @@ async def getting_started(request:Request):
                                             vm.user_id,
                                             vm.last_contact_date)
 
-   # login the user
+   # Redirect to the account page
    response = fastapi.responses.RedirectResponse(url="/account",status_code=status.HTTP_302_FOUND)
    
-   cookie_auth.set_auth(response,lead.lead_id)
+   cookie_auth.set_auth(response,lead.user_id)
 
    return response
 
@@ -71,6 +71,8 @@ async def upload_leads(file: UploadFile = File(...)):
             if not row['first_name'] or not row['last_name'] or not row['email'] or not row['phone'] or not row['source'] or not row['status'] or not row['company_id'] or not row['user_id'] or not row['last_contact_date']:
                 raise HTTPException(status_code=400,detail='Invalid CSV file: Missing required data')
             
+            # TODO validate that this lead is already not existing in the database.
+            
             lead = await lead_service.create_lead(row['first_name'],
                                                   row['last_name'],
                                                   row['email'],
@@ -84,3 +86,5 @@ async def upload_leads(file: UploadFile = File(...)):
     
     # Process the leads data as needed
     return {"message": "Leads uploaded successfully", "leads": leads}
+
+#TODO Add upload json input file

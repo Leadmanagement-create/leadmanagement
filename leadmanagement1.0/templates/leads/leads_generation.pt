@@ -63,10 +63,7 @@
                                 <input type="number" id="user_id" name="user_id">
                             </div>
                             <!-- TODO: add date picker -->
-                            <!-- <div>
-                                <label for="last_contact_date">Last Contact Date:</label>
-                                <input type="date" id="last_contact_date" name="last_contact_date">
-                            </div> -->
+
                             <button type="submit">Submit Lead</button>
                         </form>
                     </div>
