@@ -7,6 +7,7 @@ from starlette.staticfiles import StaticFiles
 from data import db_session
 from views import home
 from views import account
+from views import leads
 
 app = fastapi.FastAPI()
 
@@ -22,6 +23,7 @@ def configure_routes():
     app.mount('/static',StaticFiles(directory='static'),name='static')
     app.include_router(home.router)
     app.include_router(account.router)
+    app.include_router(leads.router)
 
 def main():
     configure() 

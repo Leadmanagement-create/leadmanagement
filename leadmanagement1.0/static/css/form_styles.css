@@ -1,5 +1,7 @@
+@import url(/static/toggle_switch.css);
 /* form styles.css */
 
+/* ... existing code ... */
 .form-wrapper {
     display: flex;
     justify-content: center;
@@ -54,4 +56,62 @@ a {
 }
 body{
     background: #cfe1ff;
+}
+
+.back-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add some space below the button */
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+/* Night mode styles */
+body.night-mode {
+    background-color: #333;
+    color: white;
+}
+
+body.night-mode .form-container {
+    background-color: #222;
+}
+
+body.night-mode form {
+    color: white;
+}
+
+body.night-mode input[type="text"],
+body.night-mode input[type="email"],
+body.night-mode input[type="password"] {
+    background-color: #444;
+    color: white;
+    border-color: #666;
+}
+
+body.night-mode input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+body.night-mode .error-msg {
+    color: #ff5555;
+}
+
+body.night-mode a {
+    color: white;
+}
+
+body.night-mode .back-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+body.night-mode .back-button:hover {
+    background-color: #5a6268;
 }

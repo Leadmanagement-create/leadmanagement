@@ -1,0 +1,2 @@
+class LeadsTrackingViewModel:
+    pass
