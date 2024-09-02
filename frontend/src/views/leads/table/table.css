@@ -1,0 +1,16 @@
+.ag-style {
+    height: 550px;
+    width: 100%;
+  }
+  
+  .vertical-middle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .vertical-middle img {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
