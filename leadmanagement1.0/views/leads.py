@@ -10,6 +10,8 @@ from fastapi_chameleon import template
 from fastapi import UploadFile, File,HTTPException
 import csv
 import io
+import requests
+from fastapi.responses import RedirectResponse
 
 
 #TODO Leads Routing and Leads Nurturing ViewModels and Services
@@ -88,3 +90,47 @@ async def upload_leads(file: UploadFile = File(...)):
     return {"message": "Leads uploaded successfully", "leads": leads}
 
 #TODO Add upload json input file
+
+@router.post("/leads/fetch_leads_from_api")
+async def fetch_leads_from_api(request:Request):
+    query_params = {"_quantity": 10,
+                    "_locale":"en_US",
+                    "first_name":"firstName",
+                    "last_name":"lastName",
+                    "email":"email",
+                    "phone":"phone",
+                    "source":"word",
+                    "status":"word",
+                    "last_contact_date":"date"}
+    leads = []
+    try:
+        response = requests.get("https://fakerapi.it/api/v2/custom/",params=query_params,verify=False) # verify=False is used to ignore SSL certificate verification
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        data = response.json()
+
+        
+        data_dict_list = data.get('data')
+        print(f'this is the data_dict_list: {data_dict_list}')
+        # Process the data as needed
+        # For example, save the data to the database or perform other operations
+        for record in data_dict_list:
+            # Create a lead
+            print(f'this is the record: {record}')
+            lead = await lead_service.create_lead(record.get('first_name'),
+                                                  record.get('last_name'),
+                                                  record.get('email'),
+                                                  record.get('phone'),
+                                                  record.get('source'),
+                                                  record.get('status'),
+                                                  1, # company_id
+                                                  1, # user_id
+                                                  record.get('last_contact_date'))
+            leads.append(lead)
+            
+
+        
+
+        # Redirect to a success page or back to the leads page
+        return {"message": "Leads uploaded successfully", "leads": leads}
+    except requests.RequestException as e:
+        raise HTTPException(status_code=500, detail=str(e))
