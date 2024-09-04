@@ -21,12 +21,6 @@
                 <form id="uploadForm" action="/leads/upload_leads" method="post" enctype="multipart/form-data" style="display: none;">
                     <input type="file" id="fileInput" name="file" accept=".csv" onchange="document.getElementById('uploadForm').submit();">
                 </form>
-                  <!-- Fetch Data from API Button -->
-
-                <!-- Fetch Data from API Button -->
-                <button type="button" onclick="document.getElementById('apiForm').submit();">Fetch Data from API</button>
-                <form id="apiForm" action="/leads/fetch_leads_from_api" method="post" style="display: none;">
-                </form>
 
                 <div class="form-wrapper">
 

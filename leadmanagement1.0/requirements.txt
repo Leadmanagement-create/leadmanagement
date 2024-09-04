@@ -5,6 +5,5 @@ python-multipart
 sqlalchemy
 passlib
 aiosqlite
-requests
 
 git+https://github.com/mikeckennedy/fastapi-chameleon
