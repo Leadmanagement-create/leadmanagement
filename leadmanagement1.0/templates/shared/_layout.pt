@@ -4,11 +4,9 @@
         <meta charset="UTF-8">
         <title> Lead Management System </title>
 
-         <!-- Night Mode Toggle Switch -->
-            <label class="switch top-right">
-                <input type="checkbox" id="nightModeToggle" onclick="toggleNightMode()">
-                <span class="slider round"></span>
-            </label>
+         <div metal:define-slot="style_css" tal:omit-tag="True"> 
+            <link rel="stylesheet" href="/static/site.css"> 
+        </div>
      
 
         <!-- Favicon -->
@@ -17,9 +15,13 @@
         
         <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
 
-        <div metal:define-slot="style_css" tal:omit-tag="True"> 
-            <link rel="stylesheet" href="/static/site.css"> 
-        </div>
+        
+
+        <!-- Night Mode Toggle Switch -->
+            <label class="switch top-right">
+                <input type="checkbox" id="nightModeToggle" onclick="toggleNightMode()">
+                <span class="slider round"></span>
+            </label>
     
     
 

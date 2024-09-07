@@ -11,3 +11,8 @@ router = fastapi.APIRouter()
 def index(request:Request):
     vm = IndexViewModel(request)
     return vm.to_dict()
+
+@router.get("/contact")
+@template()
+def contact(request:Request):
+    return {}

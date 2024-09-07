@@ -1,0 +1,39 @@
+@import url(/static/css/form_styles.css);
+
+/* Contact Info Section */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #e9ecef;
+    margin: 20px 0;
+}
+
+.info-item {
+    flex: 1;
+    text-align: center;
+}
+
+.info-item h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #007BFF;
+}
+
+.info-item p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Night Mode */
+body.nightmode .contact-info {
+    background-color: #1e1e1e;
+}
+
+body.nightmode .info-item h2 {
+    color: #1e90ff;
+}
+
+body.nightmode .info-item p {
+    color: #f1f1f1;
+}

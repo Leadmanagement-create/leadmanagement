@@ -1,6 +1,20 @@
 /* Adding Toggle Switch CSS for night mode */
 @import url(/static/toggle_switch.css);
 /* Existing styles */
+
+/* Navbar Brand Styles */
+.navbar-brand {
+    position: fixed;
+    top: 10px; /* Adjust the value as needed */
+    left: 10px; /* Adjust the value as needed */
+    z-index: 1001; /* Ensure it is above other content */
+}
+
+.navbar-brand img {
+    max-height: 40px; /* Adjust the height as needed */
+}
+
+
 .topnav {
     background-color: #333;
     overflow: hidden;
@@ -29,6 +43,23 @@ body {
     background: #cfe1ff;
 }
 
+/* Content Header Styles */
+.content-header {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Center the element */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
 /* Night mode styles */
 
 body.night-mode {
@@ -52,4 +83,10 @@ body.night-mode .topnav a:hover {
 body.night-mode .topnav a.active {
     background-color: #6200ea;
     color: white;
+}
+
+body.night-mode .content-header {
+    background-color: #1f1f1f;
+    color: #f0f0f0;
+    border-bottom: 1px solid #444;
 }
