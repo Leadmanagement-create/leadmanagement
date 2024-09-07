@@ -31,8 +31,10 @@ async def create_lead(first_name:str,
     lead.source = source
     lead.status = status
     lead.company_id = int(company_id)
+    
     #TODO Lead should be asssigned automatically to the user who created it
     lead.user_id = int(user_id)
+
     #TODO fix the last contact date: it is taking string, not datetime which is required by database
     # lead.last_contact_date = last_contact_date
     lead.last_contact_date = datetime.now().date()

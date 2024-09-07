@@ -4,6 +4,19 @@
         <meta charset="UTF-8">
         <title> Lead Management System </title>
 
+         <!-- Night Mode Toggle Switch -->
+            <label class="switch top-right">
+                <input type="checkbox" id="nightModeToggle" onclick="toggleNightMode()">
+                <span class="slider round"></span>
+            </label>
+     
+
+        <!-- Favicon -->
+
+        <link rel="icon" type="image/x-icon" href="/static/img/lead_management_icon.ico">
+        
+        <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
+
         <div metal:define-slot="style_css" tal:omit-tag="True"> 
             <link rel="stylesheet" href="/static/site.css"> 
         </div>
@@ -13,14 +26,8 @@
     </head>
     
     <body>
-        <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
-        <h1> Lead Management System </h1>
-
-         <!-- Night Mode Toggle Switch -->
-        <label class="switch">
-            <input type="checkbox" id="nightModeToggle" onclick="toggleNightMode()">
-            <span class="slider round"></span>
-        </label>
+ 
+       
     
         <div class = "main-content">
             <div metal:define-slot="header" tal:omit-tag="True"> No Header </div>
@@ -46,6 +53,15 @@
                 document.body.classList.add('night-mode');
                 document.getElementById('nightModeToggle').checked = true;
             }
+
+            window.addEventListener('scroll', function() {
+                var navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) { // Adjust the scroll value as needed
+                    navbar.classList.add('transparent');
+                } else {
+                    navbar.classList.remove('transparent');
+                }
+            });
         </script>
     </body>
 

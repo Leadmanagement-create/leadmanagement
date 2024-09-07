@@ -102,9 +102,13 @@ async def fetch_leads_from_api(request:Request):
                     "source":"word",
                     "status":"word",
                     "last_contact_date":"date"}
+    
+    headers = {'accept':'application/json',
+               #authorization header can be added here Ex: 'Authorization':'Bearer <token>'
+               }
     leads = []
     try:
-        response = requests.get("https://fakerapi.it/api/v2/custom/",params=query_params,verify=False) # verify=False is used to ignore SSL certificate verification
+        response = requests.get("https://fakerapi.it/api/v2/custom/",params=query_params,headers=headers,verify=False) # verify=False is used to ignore SSL certificate verification
         response.raise_for_status()  # Raise an exception for HTTP errors
         data = response.json()
 

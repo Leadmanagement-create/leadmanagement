@@ -1,54 +1,53 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
- 
- 
-    
-    <div class="main-content" tal:omit-tag = "True">
+    <div metal:fill-slot="style_css" tal:omit-tag="True">
+        <link rel="stylesheet" href="/static/css/landing_page.css">
+    </div>
 
-      
+    <div class="main-content" tal:omit-tag="True">
 
+        <!-- Header Section -->
         <div metal:fill-slot="header" tal:omit-tag="True">
-
-             <div class="topnav">
-            
+         
+            <div class="topnav">
                 <a href="/account/getting_started">Getting Started</a>
-       
+                <a href="/features">Features</a>
+                <a href="/pricing">Pricing</a>
+                <a href="/contact">Contact Us</a>
             </div>
-          
-                <h2><strong>Deliver meaningful data to every data professional</strong></h2>
+            <p>Manage your leads and inquiries easily with our Lead Management System.</p>
+            <p>We help you stay on top of your lead generation efforts so you can focus on closing deals.</p>
+            <p>You'll have access to a centralized dashboard that displays all of your leads, both inbound and outbound, plus the ability to track each lead's progress.</p>
         </div>
 
+        <!-- Content Section -->
         <div metal:fill-slot="content" tal:omit-tag="True">
 
-                <p>Access authoritative data: Accelerate your time to value by automatically reusing the semantic definitions and associations from various applications.</p>
-                <p>Enrich all data projects: Harmonise heterogeneous data into a business semantic model of your diverse data landscape.</p>
-                <p>Simplify the data landscape: Access all your data across hybrid and cloud environments no matter where it resides.</p>
-                <p>Empower data professionals: Enable data professionals to easily find, understand, and trust data.</p>
-    
-
-            <div class="container project-list">
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-
-                        <h2>New releases</h2>
-                        <span class="subtitle">Hot off the press: the newest project releases</span>
-                            <ul>
-
-                                <li class="project" tal:repeat="p releases">
-                                    <!-- <div class="title"><a href="/project/${p.id}">${p.id}</a></div> -->
-
-                                    <div class="title">${p.id}</div>
-                                    <div class="desc">${p.summary}</div>
-                                </li>
-                            </ul>
+            <!-- Feature Highlights and Image -->
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <div class="new-releases">
+                        <h2>New Releases</h2>
+                        <div class="container project-list">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <span class="subtitle">Hot off the press: the newest project releases</span>
+                                    <ul>
+                                        <li class="project" tal:repeat="p releases">
+                                            <div class="title">${p.id}</div>
+                                            <div class="desc">${p.summary}</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3"></div>
+                </div>
+                <div class="image-content">
+                    <img src="/static/img/landing_page_img.svg" alt="Descriptive Alt Text">
                 </div>
             </div>
-
-
         </div>
     </div>
-        
-    
 </div>
