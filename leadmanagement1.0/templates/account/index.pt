@@ -1,7 +1,7 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
 
     <div metal:fill-slot="style_css" tal:omit-tag="True">
-        <link rel="stylesheet" href="/static/css/account_new.css">
+        <link rel="stylesheet" href="/static/css/account.css">
     </div>
     
     <div metal:fill-slot="header" tal:omit-tag="True">
@@ -10,8 +10,7 @@
 
     <div metal:fill-slot="content" class="content" tal:omit-tag="True">
         <div class="page-core">
-           
-            <p>Welcome to your account ${user.first_name}!</p>
+           <p>Welcome to your account ${user.first_name}!</p>
             <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
 
         </div>

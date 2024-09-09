@@ -7,6 +7,12 @@ body {
     background: #f2f4f7; /* Light gray background similar to the reference */
     font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
 }
+/* Navbar Brand Styles */
+
+
+.navbar-brand img {
+    max-height: 40px; /* Adjust the height as needed */
+}
 
 /* Main content styling */
 .main-content {
@@ -78,6 +84,9 @@ body.night-mode .main-content {
     background-size: cover;
 }
 
+body.night-mode .sidebar h3 {
+    color: #088815; /* Highlighted section headers in night mode */
+}
 body.night-mode .sidebar {
     background-color: #333;
     color: white;
