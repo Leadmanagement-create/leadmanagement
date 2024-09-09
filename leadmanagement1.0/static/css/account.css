@@ -2,52 +2,70 @@
 /* Adding night mode toggle switch */
 @import url(/static/toggle_switch.css);
 /* this is account index css below */
-.main-content {
-    background-image: url('/static/img/account_bg_image.jpg');
-    background-size: contain; /* This will make the image cover the entire background */
-    background-position: right; /* This will center the image */
-    background-repeat: no-repeat; /* This will prevent the image from repeating */
-}
 
 body {
-    background: #cfe1ff;
+    background: #f2f4f7; /* Light gray background similar to the reference */
+    font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+}
+
+/* Main content styling */
+.main-content {
+    /* background-image: url('/static/img/account_bg_image.jpg'); */
+    background-size: cover; /* Cover the entire area with the image */
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.page-core {
+    margin-left: 270px; /* Maintain space for the sidebar */
+    padding: 20px; /* Add padding to the content */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    float: left;
+    padding: 20px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push the log out button to the bottom */
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    color: #007bff; /* Highlighted section headers */
+    margin-bottom: 15px;
 }
 
 .sections {
-    margin-top: 20px;
-    display: flex;
+    margin-bottom: 25px; /* Increase spacing between sections */
 }
 
 .section-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
+    display: block;
+    padding: 12px 18px;
+    margin: 8px 0;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    text-decoration: none;
+    border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
-.section-button:hover {
-    background-color: #0056b3;
-}
-.logout-button {
-    position: relative; /* Position the button absolutely */
-    top: 10px; /* Adjust the top position as needed */
-    right: 8px; /* Adjust the right position as needed */
-    background-color: #f44336;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-left: auto; /* This will push the button to the right */
+    text-align: center; /* Align text center */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for buttons */
 }
 
-.logout-button:hover {
-    background-color: #d32f2f;
+.section-button:hover {
+    background-color: #0056b3;
+    text-decoration: none;
 }
+
+
+
+
 
 /* Night mode styles */
 body.night-mode {
@@ -56,32 +74,102 @@ body.night-mode {
 }
 
 body.night-mode .main-content {
-    background-image: url('/static/img/account_bg_image_night.jpg'); /* Optional: Use a different background image for night mode */
-    background-size: contain;
-    background-position: right;
-    background-repeat: no-repeat;
+    /* background-image: url('/static/img/account_bg_image_night.jpg'); */
+    background-size: cover;
 }
 
-body.night-mode .sections {
-    /* Add any specific styles for sections in night mode if needed */
-    margin-top: 20px;
-    display: flex;
+body.night-mode .sidebar {
+    background-color: #333;
+    color: white;
 }
 
 body.night-mode .section-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    background-color: #444;
 }
 
 body.night-mode .section-button:hover {
     background-color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+    }
+
+    .page-core {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .section-button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+   
+}
+/* Wrapper that includes the entire page layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The main wrapper to hold the sidebar and content */
+.main-wrapper {
+    display: flex;
+    flex-grow: 1; /* Allows the main content to expand and push the footer down */
+}
+
+/* Main content styling */
+.page-core {
+    margin-left: 270px; /* Maintain space for the sidebar */
+    padding: 20px;
+    flex-grow: 1; /* Allows the content to fill available space */
+}
+
+/* Footer styling */
+footer {
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.logout-button {
+    background-color: #f44336;
     color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center; /* Align text center */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Responsive footer for small screens */
+@media (max-width: 768px) {
+    .page-core {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+   
 }

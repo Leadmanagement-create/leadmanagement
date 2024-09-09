@@ -1,42 +1,51 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
 
     <div metal:fill-slot="style_css" tal:omit-tag="True">
-        <link rel="stylesheet" href="/static/css/account.css">
+        <link rel="stylesheet" href="/static/css/account_new.css">
     </div>
     
     <div metal:fill-slot="header" tal:omit-tag="True">
-            <a href="/" class="logout-button">Log Out</a>
+        
     </div>
 
     <div metal:fill-slot="content" class="content" tal:omit-tag="True">
-        
         <div class="page-core">
-            <h1>Your Lead Management Account</h1>
-                <p>Welcome to your account ${user.first_name}!</p>
+           
+            <p>Welcome to your account ${user.first_name}!</p>
+            <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
 
-                <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
-
-            
-
-                <div class="leads sections">
-                    <h3>Leads</h3>
-                    <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
-                    <a class="section-button" href="/lead-tracking">Lead Tracking</a>
-                    <a class="section-button" href="/routing">Routing</a>
-                    <a class="section-button" href="/nurturing">Nurturing/Activities</a>
-                </div>
-                <div class="company sections">
-                    <h3>Company</h3>
-                    <a class="section-button" href="/company">Register Company</a>
-                    <a class="section-button" href="/company">Update Company</a>
-                    <a class="section-button" href="/company">View Registered Companies</a>
-                </div>
-                <div class="campaign sections">
-                    <h3>Campaign</h3>
-                    <a class="section-button" href="/campaign">Add a New Campaign</a>
-                    <a class="section-button" href="/update_campaign">Update Campaign</a>
-                </div>
         </div>
+
+        <!-- Sidebar for sections -->
+        <div class="sidebar">
+            <!-- Leads Section -->
+            <div class="leads sections">
+                <h3>Leads</h3>
+                <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
+                <a class="section-button" href="/lead-tracking">Lead Tracking</a>
+                <a class="section-button" href="/routing">Routing</a>
+                <a class="section-button" href="/nurturing">Nurturing/Activities</a>
+            </div>
+
+            <!-- Company Section -->
+            <div class="company sections">
+                <h3>Company</h3>
+                <a class="section-button" href="/company">Register Company</a>
+                <a class="section-button" href="/company">Update Company</a>
+                <a class="section-button" href="/company">View Registered Companies</a>
+            </div>
+
+            <!-- Campaign Section -->
+            <div class="campaign sections">
+                <h3>Campaign</h3>
+                <a class="section-button" href="/campaign">Add a New Campaign</a>
+                <a class="section-button" href="/update_campaign">Update Campaign</a>
+            </div>
+            <!-- log out button -->
+            <a href="/" class="logout-button">Log Out</a>
+
+        </div>
+        
     </div>
 
 </div>
