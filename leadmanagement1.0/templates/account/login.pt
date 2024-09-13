@@ -5,7 +5,9 @@
     </div>
 
     <div metal:fill-slot="header">
-        <p>Connect with your leads and grow your business</p>
+        <div class="navbar">
+            <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
+        </div>
     </div>
 
     <div metal:fill-slot="content" tal:omit-tag="True">

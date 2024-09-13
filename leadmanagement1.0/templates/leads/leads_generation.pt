@@ -10,27 +10,19 @@
     <body>
         <div class = "main-content">
             <div metal:fill-slot="header">
-                <p>Connect with your leads and grow your business</p>
+                <div class="navbar">
+                    <a class="navbar-brand" href="/"><img src="/static/img/lead_management_icon.png"/></a>
+                </div>
             </div>
-
+             
             <div metal:fill-slot="content">
-                <!-- Back Button -->
-                <button type="button" onclick="window.history.back();" class="back-button">Back</button>
-                 <!-- Upload CSV Button -->
-                <button type="button" onclick="document.getElementById('fileInput').click();">Upload From CSV</button>
-                <form id="uploadForm" action="/leads/upload_leads" method="post" enctype="multipart/form-data" style="display: none;">
-                    <input type="file" id="fileInput" name="file" accept=".csv" onchange="document.getElementById('uploadForm').submit();">
-                </form>
-                  <!-- Fetch Data from API Button -->
-
-                <!-- Fetch Data from API Button -->
-                <button type="button" onclick="document.getElementById('apiForm').submit();">Fetch Data from API</button>
-                <form id="apiForm" action="/leads/fetch_leads_from_api" method="post" style="display: none;">
-                </form>
-
+                
+               
                 <div class="form-wrapper">
 
                     <div class="form-container">
+                        <!-- Back Button -->
+                        <button type="button" onclick="window.history.back();" class="back-button">Back</button>
 
                         <form method="post" action="">
                             <h2> Add a Lead </h2>
@@ -72,9 +64,25 @@
 
                             <button type="submit">Submit Lead</button>
                         </form>
-                    </div>
+                        <div class="additional_input">
+                            <!-- Upload CSV Button -->
+                            <button type="button" onclick="document.getElementById('fileInput').click();">Upload From CSV</button>
+                            <form id="uploadForm" action="/leads/upload_leads" method="post" enctype="multipart/form-data" style="display: none;">
+                                <input type="file" id="fileInput" name="file" accept=".csv" onchange="document.getElementById('uploadForm').submit();">
+                            </form>
+                            <!-- Fetch Data from API Button -->
 
+                            <!-- Fetch Data from API Button -->
+                            <button type="button" onclick="document.getElementById('apiForm').submit();">Fetch Data from API</button>
+                            <form id="apiForm" action="/leads/fetch_leads_from_api" method="post" style="display: none;">
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
+
+                
+
             </div>
         </div>
     </body>

@@ -72,7 +72,9 @@ body{
 .back-button:hover {
     background-color: #5a6268;
 }
-
+.additional_input {
+    margin-top: 20px; /* Adjust the value as needed */
+}
 /* Night mode styles */
 body.night-mode {
     background-color: #333;
