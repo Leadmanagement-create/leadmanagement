@@ -1,50 +1,173 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
-
+    <!-- Stylesheets -->
     <div metal:fill-slot="style_css" tal:omit-tag="True">
         <link rel="stylesheet" href="/static/css/account.css">
-    </div>
-    
-    <div metal:fill-slot="header" tal:omit-tag="True">
-        
+        <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
     </div>
 
-    <div metal:fill-slot="content" class="content" tal:omit-tag="True">
-        <div class="page-core">
-           <p>Welcome to your account ${user.first_name}!</p>
-            <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
+    <!-- Header Slot (Add content here or remove if not needed) -->
+    <div metal:fill-slot="header" tal:omit-tag="True"></div>
 
-        </div>
+    <!-- Main Content -->
+        <div metal:fill-slot="content" class="content" tal:omit-tag="True">
+            <div class="container-fluid">
+                    <!-- Sidebar -->
+                    <div class="sidebar" id="sidebar">
+                        <img src="/static/img/lead_management_icon.png" alt="Logo" class="sidebar-logo"> LEAD MANAGEMENT SYSTEM
+                        
+                        <ul class="menu">
+                            <!-- Dashboard -->
+                            <li class="menu-item">
+                                <a href="/account" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                                    <div data-i18n="Dashboard">Dashboard</div>
+                                </a>
+                            </li>
+                            
+                            <!-- Master Data with Toggle -->
+                            <li id="1m" class="menu-item">
+                                <input type="checkbox" id="toggle-master" class="menu-toggle-checkbox">
+                                <label for="toggle-master" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons bx bx-fast-forward-circle"></i>
+                                    <div class="menu-text" data-i18n="Master Data">Master</div>
+                                    <span class="menu-arrow"></span>
+                                </label>
+                                <ul class="menu-sub">
+                                    <li id="5m" class="menu-item">
+                                        <a href="/operation1" class="menu-link">
+                                            <div data-i18n="Lead For">Lead For</div>
+                                        </a>
+                                    </li>
+                                    <li id="6m" class="menu-item">
+                                        <a href="/operation2" class="menu-link">
+                                            <div data-i18n="Lead Source">Lead Source</div>
+                                        </a>
+                                    </li>
+                                    <li id="7m" class="menu-item">
+                                        <a href="/operation3" class="menu-link">
+                                            <div data-i18n="Role Master">Role Master</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-        <!-- Sidebar for sections -->
-        <div class="sidebar">
-            <!-- Leads Section -->
-            <div class="leads sections">
-                <h3>Leads</h3>
-                <a class="section-button" href="/leads/leads_generation">Lead Generation</a>
-                <a class="section-button" href="/lead-tracking">Lead Tracking</a>
-                <a class="section-button" href="/routing">Routing</a>
-                <a class="section-button" href="/nurturing">Nurturing/Activities</a>
-            </div>
+                            <!-- Contacts -->
+                            <li id="2m" class="menu-item">
+                                <a href="/leads/leads_generation" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-book-content"></i>
+                                    <div data-i18n="Contacts">Contacts</div>
+                                </a>
+                            </li>
 
-            <!-- Company Section -->
-            <div class="company sections">
-                <h3>Company</h3>
-                <a class="section-button" href="/company">Register Company</a>
-                <a class="section-button" href="/company">Update Company</a>
-                <a class="section-button" href="/company">View Registered Companies</a>
-            </div>
+                            <!-- Leads Section with Toggle -->
+                            <li id="3m" class="menu-item">
+                                <input type="checkbox" id="toggle-operations-2" class="menu-toggle-checkbox">
+                                <label for="toggle-operations-2" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons bx bxs-group"></i>
+                                    <div class="menu-text" data-i18n="Leads">Leads</div>
+                                </label>
+                                <ul class="menu-sub">
+                                    <li id="8m" class="menu-item">
+                                        <a href="/usermaster/leadfollowupmember/freshfollowupmember" class="menu-link">
+                                            <div data-i18n="Fresh Followup">Fresh Followup</div>
+                                        </a>
+                                    </li>
+                                    <li id="49m" class="menu-item">
+                                        <a href="/usermaster/leadfollowupmember/freshbulkfollowupmember" class="menu-link">
+                                            <div data-i18n="Fresh Bulk Followup">Fresh Bulk Followup</div>
+                                        </a>
+                                    </li>
+                                    <li id="9m" class="menu-item">
+                                        <a href="/usermaster/leadfollowupmember/repeatfollowupmember" class="menu-link">
+                                            <div data-i18n="Repeat Followup">Repeat Followup</div>
+                                        </a>
+                                    </li>
+                                    <li id="10m" class="menu-item">
+                                        <a href="/usermaster/leadfollowupmember/mytodayfollowupmember" class="menu-link">
+                                            <div data-i18n="My Today Followup">My Today Followup</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-            <!-- Campaign Section -->
-            <div class="campaign sections">
-                <h3>Campaign</h3>
-                <a class="section-button" href="/campaign">Add a New Campaign</a>
-                <a class="section-button" href="/update_campaign">Update Campaign</a>
-            </div>
-            <!-- log out button -->
-            <a href="/" class="logout-button">Log Out</a>
+                            <!-- Account Settings -->
+                            <li id="4m" class="menu-item">
+                                <input type="checkbox" id="toggle-operations-3" class="menu-toggle-checkbox">
+                                <label for="toggle-operations-3" class="menu-link menu-toggle">
+                                    <i class="menu-icon tf-icons bx bx-cog"></i>
+                                    <div data-i18n="Account Setting">Account Settings</div>
+                                </label>
+                                    <ul class="menu-sub">
+                                        <li class="menu-item">
+                                            <a href="/UserMaster/MemberMaster/AllTransactions" class="menu-link">
+                                                <div data-i18n="All Transactions">All Transactions</div>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="/Member/MemberLogin/ChangePassword" class="menu-link">
+                                                <div data-i18n="Change Password">Change Password</div>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="/account/logout" class="menu-link">
+                                                <div data-i18n="Log Out">Log Out</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                            </li>
+                        </ul>
+                    </div>
 
-        </div>
-        
+                    <!-- Main Content Section -->
+                    <div class="page-content" id="page-content">
+                        <div class="page-core">
+                            <p>Welcome to your account ${user.first_name}!</p>
+                            <p>Here you can manage your leads, track their progress, and nurture them to conversion.</p>
+                        </div>
+                        
+                        <!-- Dashboard Summary -->
+                        <div class="clearfix"></div>
+                        <div class="row dash_summary_bg">
+                            <div class="dash_summary_counter">
+                                <span class="title">Total Contact</span>
+                                <div class="information">
+                                    <a href="/UserMaster/ContactMaster/All" class="summary_link">${user_total_leads}</a>
+                                </div>
+                            </div>
+                            <div class="dash_summary_counter">
+                                <span class="title">Fresh Followup</span>
+                                <div class="information">
+                                    <a href="/UserMaster/LeadFollowupMember/FreshFollowupMember" class="summary_link">0</a>
+                                </div>
+                            </div>
+                            <div class="dash_summary_counter">
+                                <span class="title">Open Lead</span>
+                                <div class="information">
+                                    <a href="/Member/MemberHome/TotalOpenFollowup?leadstatus=totalOpen" class="summary_link">0</a>
+                                </div>
+                            </div>
+                            <div class="dash_summary_counter">
+                                <span class="title">Close Lead</span>
+                                <div class="information">
+                                    <a href="/Member/MemberHome/TotalOpenFollowup?leadstatus=totalClose" class="summary_link">0</a>
+                                </div>
+                            </div>
+                            <div class="dash_summary_counter">
+                                <span class="title">Cancel Lead</span>
+                                <div class="information">
+                                    <a href="/Member/MemberHome/TotalOpenFollowup?leadstatus=totalCancel" class="summary_link">0</a>
+                                </div>
+                            </div>
+                            <div class="dash_summary_counter">
+                                <span class="title">Lapsed Followup</span>
+                                <div class="information">
+                                    <a href="/Member/MemberHome/TotalLapsedFollowup?leadstatus=totallapsed" class="summary_link">0</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div> 
+                
+        </div>        
     </div>
-
 </div>

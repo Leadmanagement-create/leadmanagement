@@ -1,53 +1,147 @@
 @import url(/static/site.css);
-/* Adding night mode toggle switch */
 @import url(/static/toggle_switch.css);
-/* this is account index css below */
 
-body {
-    background: #f2f4f7; /* Light gray background similar to the reference */
-    font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+/* General body styling */
+html,body {
+    height: 100%; /* Ensure the body takes up the full height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    background: #f2f4f7;
+    font-family: 'Roboto', sans-serif;
 }
-/* Navbar Brand Styles */
-
-
+/* Navbar brand */
 .navbar-brand img {
-    max-height: 40px; /* Adjust the height as needed */
+    max-height: 40px;
+}
+/* Update the row class to use flexbox */
+.row {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
 }
 
-/* Main content styling */
-.main-content {
-    /* background-image: url('/static/img/account_bg_image.jpg'); */
-    background-size: cover; /* Cover the entire area with the image */
-    background-position: right;
-    background-repeat: no-repeat;
+.container-fluid {
+    flex:1; /* Allow the container to take up the remaining space */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
 }
+
+
+/* Main content area */
+.page-content {
+    flex-grow: 1; /* Allow main content to take remaining space */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    
+}
+
 
 .page-core {
-    margin-left: 270px; /* Maintain space for the sidebar */
-    padding: 20px; /* Add padding to the content */
+    text-align: center;
+    padding: 20px;
 }
 
-/* Sidebar styling */
-.sidebar {
-    width: 250px;
+/* Sidebar styles */
+/* .sidebar {
+    flex: 0 0 220px;
     float: left;
     padding: 20px;
     background-color: #fff;
     border-right: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
+    text-align: center;
     flex-direction: column;
-    justify-content: space-between; /* Push the log out button to the bottom */
+    align-items: flex-start; 
+    justify-content: flex-start;
+    position: fixed; 
+    height: 100vh; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
+    overflow-y: auto; 
+} */
+
+
+/* Sidebar styles */
+.sidebar {
+    flex: 0 0 220px; /* Fixed width for the sidebar */
+    background-color: #f4f4f4; /* Background color for the sidebar */
+    padding: 10px; /* Padding for the sidebar */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    position: relative; /* Ensure sidebar stays in place */
+    z-index: 1; /* Ensure sidebar stays on top */
+    text-align: center;
 }
 
-.sidebar h3 {
-    font-size: 18px;
-    color: #007bff; /* Highlighted section headers */
-    margin-bottom: 15px;
+
+
+.sidebar-logo {
+    width: 100%; /* Make the logo take the full width of the sidebar */
+    max-width: 40px; /* Limit the maximum width */
+    max-height: 40px; /* Limit the maximum height */
+    object-fit: contain; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space below the logo */
+}
+
+
+.menu {
+    padding: 0; /* Remove padding from the ul element */
+    margin: 0; /* Remove margin from the ul element */
+    list-style: none; /* Remove default list styling */
+    width: 100%; /* Ensure the menu takes full width */
+}
+.menu-item {
+    
+    list-style: none;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure menu items take full width */
+    text-align: left; /* Align text to the left */
+    padding: 0; /* Remove any padding */
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-link:hover {
+    background-color: #f0f0f0;
+}
+
+/* Submenu */
+.menu-sub {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
+
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-toggle-checkbox:checked + .menu-link + .menu-sub {
+    display: block;
+}
+
+/* Arrow styling */
+.menu-arrow {
+    content: '>';
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle-checkbox:checked + label .menu-arrow {
+    transform: rotate(90deg);
 }
 
 .sections {
-    margin-bottom: 25px; /* Increase spacing between sections */
+    margin-bottom: 25px;
 }
 
 .section-button {
@@ -60,36 +154,50 @@ body {
     border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    text-align: center; /* Align text center */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for buttons */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .section-button:hover {
     background-color: #0056b3;
-    text-decoration: none;
+}
+.menu-icon {
+    filter: invert(0); /* Default icon colors */
 }
 
+.dash_summary_bg {
+    margin-left: 5px;
+    margin-right: 2px;
+  }
+.dash_summary_counter {
+    width: 16.6667%; /* col-md-2: 2/12 of the total width (for medium devices) */
+  }
+  
+  @media (max-width: 768px) {
+    .dash_summary_counter {
+      width: 33.3333%; /* col-sm-4: 4/12 of the total width (for small devices) */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dash_summary_counter {
+      width: 83.3333%; /* col-xs-10: 10/12 of the total width (for extra small devices) */
+    }
+  }
+  
 
 
 
 
-/* Night mode styles */
+
+/* Night mode */
 body.night-mode {
     background: #121212;
     color: white;
 }
 
-body.night-mode .main-content {
-    /* background-image: url('/static/img/account_bg_image_night.jpg'); */
-    background-size: cover;
-}
-
-body.night-mode .sidebar h3 {
-    color: #088815; /* Highlighted section headers in night mode */
-}
 body.night-mode .sidebar {
     background-color: #333;
-    color: white;
 }
 
 body.night-mode .section-button {
@@ -99,49 +207,23 @@ body.night-mode .section-button {
 body.night-mode .section-button:hover {
     background-color: #555;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        border-right: none;
-    }
-
-    .page-core {
-        margin-left: 0;
-        padding: 15px;
-    }
-
-    .section-button {
-        padding: 10px 15px;
-        font-size: 16px;
-    }
-
-   
-}
-/* Wrapper that includes the entire page layout */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+.night-mode .menu-text,
+.night-mode [data-i18n]{
+    color: #ffffff; /* White text color */
+    background-color: #333333; /* Dark background color */
 }
 
-/* The main wrapper to hold the sidebar and content */
-.main-wrapper {
-    display: flex;
-    flex-grow: 1; /* Allows the main content to expand and push the footer down */
+.menu-text,
+[data-i18n] {
+    color: #000000; /* Default text color */
+    background-color: #ffffff; /* Default background color */
+}
+.night-mode .menu-icon {
+    filter: invert(1); /* Invert colors for icons */
 }
 
-/* Main content styling */
-.page-core {
-    margin-left: 270px; /* Maintain space for the sidebar */
-    padding: 20px;
-    flex-grow: 1; /* Allows the content to fill available space */
-}
 
-/* Footer styling */
+/* Footer */
 footer {
     background-color: #f4f4f4;
     padding: 10px 20px;
@@ -150,35 +232,5 @@ footer {
     width: 100%;
     position: relative;
     bottom: 0;
-}
-
-.logout-button {
-    background-color: #f44336;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center; /* Align text center */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: block;
-}
-
-.logout-button:hover {
-    background-color: #d32f2f;
-}
-
-
-/* Responsive footer for small screens */
-@media (max-width: 768px) {
-    .page-core {
-        margin-left: 0;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-    }
-   
+    flex-shrink: 0; /* Prevent footer from shrinking */
 }
