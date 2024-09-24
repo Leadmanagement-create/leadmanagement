@@ -4,10 +4,14 @@ from starlette.requests import Request
 from starlette import status
 from infrastructure import cookie_auth
 from viewmodels.account.account_viewmodel import AccountViewModel
-from viewmodels.account.register_viewmodel import RegisterViewModel
+from viewmodels.account.account_charts_viewmodel import AccountChartsViewModel
 from viewmodels.account.login_viewmodel import LoginViewModel
 from services import user_service
 from fastapi_chameleon import template
+
+import plotly.graph_objs as go # I will move this to a service later
+import plotly.io as pio
+from plotly.graph_objs import Figure
 
 router = fastapi.APIRouter()
 
@@ -18,35 +22,16 @@ async def index(request:Request):
     await vm.load()
     return vm.to_dict()
 
-@router.get("/account/getting_started")
-@template()
-def getting_started(request:Request):
+########### CHARTS ON ACCOUNT PAGE ########## 
+@router.get("/account/lead_by_source_chart")
+async def get_lead_by_source_chart(request:Request):
+    vm = AccountChartsViewModel(request)
+    await vm.load()
+    fig = go.Figure(data=[go.Bar(x=vm.lead_by_source_labels, y=vm.lead_by_source_values)])
+    fig.update_layout(title='Leads by Source')
+    return pio.to_json(fig)
 
-    print("GET REGISTER")
-    vm = RegisterViewModel(request)
-    return vm.to_dict()
-
-@router.post("/account/getting_started")
-@template()
-async def getting_started(request:Request):
-   print('Registration FORM POSTED from getting started page')
-   vm = RegisterViewModel(request)
-   await vm.load()
-   
-   if vm.errors:
-       return vm.to_dict()
-   
-   # Create the account -
-   account = await user_service.create_account(vm.first_name,vm.last_name,vm.email,vm.password)
-
-   # login the user
-   response = fastapi.responses.RedirectResponse(url="/account",status_code=status.HTTP_302_FOUND)
-   
-   cookie_auth.set_auth(response,account.user_id)
-
-   return response
-
-##################### LOGIN ############################
+################ LOGIN ##################
 
 @router.get("/account/login")
 @template()
@@ -77,7 +62,7 @@ async def login(request:Request):
 
     return response
 
-
+############ LOGOUT ######################
 
 @router.get("/account/logout")
 def logout():

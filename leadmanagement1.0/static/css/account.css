@@ -131,8 +131,9 @@ html,body {
 
 /* Arrow styling */
 .menu-arrow {
-    content: '>';
-    margin-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    margin-left: auto;
     transition: transform 0.3s ease;
 }
 
@@ -166,6 +167,7 @@ html,body {
 }
 
 .dash_summary_bg {
+    background-color: #fffafa;
     margin-left: 5px;
     margin-right: 2px;
   }
@@ -222,6 +224,16 @@ body.night-mode .section-button:hover {
     filter: invert(1); /* Invert colors for icons */
 }
 
+.logout-button {
+    background-color: red;
+    color: white; /* Ensure the text is readable */
+    padding: 10px 20px; /* Add some padding */
+    border: none; /* Remove any border */
+    border-radius: 5px; /* Add rounded corners */
+    text-align: center; /* Center the text */
+    display: inline-block; /* Ensure proper spacing */
+    cursor: pointer; /* Change cursor to pointer */
+}
 
 /* Footer */
 footer {

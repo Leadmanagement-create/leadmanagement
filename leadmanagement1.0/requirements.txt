@@ -6,5 +6,5 @@ sqlalchemy
 passlib
 aiosqlite
 requests
-
+plotly
 git+https://github.com/mikeckennedy/fastapi-chameleon
