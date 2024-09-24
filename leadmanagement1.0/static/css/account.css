@@ -187,8 +187,12 @@ html,body {
     }
   }
   
-
-
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin-bottom: 20px;
+}
 
 
 

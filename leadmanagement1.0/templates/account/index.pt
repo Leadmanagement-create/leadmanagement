@@ -173,17 +173,14 @@
                         </div>
                         <div class="clearfix"></div>
                             <!-- TODO ADD CHARTS: Leads By Source, Leads By Status, Sales By Lead Source and PipeLine By Stage--> 
-                        <div id="Lead_By_Source_Chart"></div>
+                        <div id="multi_plot_chart"></div>
                         <script>
-                            fetch('/account/lead_by_source_chart')
+                            fetch('/account/multi_plot_chart')
                             .then(response => response.json())
                             .then(data => {
-                                Plotly.newPlot('Lead_By_Source_Chart', JSON.parse(data));
+                                Plotly.newPlot('multi_plot_chart', JSON.parse(data));
                             });
-                        </script>
-                        <div id="Lead_By_Status_Chart"></div>
-                        <div id="Sales_By_Lead_Source_Chart"></div>
-                        <div id="PipeLine_By_Stage_Chart"></div>    
+                        </script>   
                     </div> 
                 
         </div>        

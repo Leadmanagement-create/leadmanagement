@@ -48,3 +48,15 @@ async def get_lead_by_source(user_id:int):
 
         return sources, counts
 
+async def get_lead_by_status(user_id:int):
+    async with db_session.create_async_session() as session:
+        query = select(Lead.status,func.count(Lead.lead_id)).filter(Lead.user_id == user_id).group_by(Lead.status)
+        result = await session.execute(query)
+        rows = result.fetchall()
+        
+          # Extract sources and counts into separate lists
+        statuses = [row[0] for row in rows]
+        counts = [row[1] for row in rows]
+
+        return statuses, counts
+

@@ -9,6 +9,8 @@ class AccountChartsViewModel(ViewModelBase):
 
         self.lead_by_source_labels = []
         self.lead_by_source_values = []
+        self.lead_by_status_labels = []
+        self.leads_by_status_values = []
         
     
 
@@ -16,3 +18,7 @@ class AccountChartsViewModel(ViewModelBase):
         sources,counts = await lead_dashboard_service.get_lead_by_source(self.user_id)
         self.lead_by_source_labels = sources
         self.lead_by_source_values = counts
+
+        status,counts = await lead_dashboard_service.get_lead_by_status(self.user_id)
+        self.lead_by_status_labels = status
+        self.leads_by_status_values = counts
