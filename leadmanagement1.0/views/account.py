@@ -51,6 +51,11 @@ async def multi_plot_chart(request:Request):
                          marker=dict(colors=['red', 'green', 'blue', 'orange'])),row=1, col=2)
     
 
+    fig.add_trace(go.Funnel(y=vm.lead_pipeline_labels,
+                            x=vm.lead_pipeline_values,
+                            name='Pipeline By Stage',
+                            marker=dict(color='cyan')), row=2, col=2)
+
     # Customize the layout
     fig.update_layout(title_text="Lead Dashboard",
                       showlegend=False,

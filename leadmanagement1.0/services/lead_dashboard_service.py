@@ -60,3 +60,17 @@ async def get_lead_by_status(user_id:int):
 
         return statuses, counts
 
+async def get_lead_pipeline_by_stage(user_id:int):
+    async with db_session.create_async_session() as session:
+        query = (select(Lead.status,func.count(Lead.lead_id))
+                        .filter(Lead.user_id == user_id)
+                        .group_by(Lead.status)
+                        .order_by(func.count(Lead.lead_id).desc())) # TODO Need to rethink data model, maybe there should be a Stage column
+        result= await session.execute(query)
+        rows = result.fetchall()
+
+        stages = [row[0] for row in rows]
+        counts = [row[1] for row in rows]
+
+        return stages,counts
+
