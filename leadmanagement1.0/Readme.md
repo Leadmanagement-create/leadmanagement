@@ -1,7 +1,8 @@
 # Lead Management Project
 
 Welcome to the Lead Management Project! This project aims to provide a comprehensive solution for managing leads and streamlining the lead management process.
-
+https://sqliteonline.com/ can be used for someone with SQL background to run the sql queries on top of the db>leadmanagemet.sql file
+Or DBeaver can be a good SQL Administration tool for database side of the project.
 ## Features
 
 - Lead capture: Easily capture leads from various sources and channels.
